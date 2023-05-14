@@ -22,9 +22,9 @@ namespace Zomb
     {
         internal bool GameOver;
         internal int ZombieSpeed = 4;
-        internal int MedkitStrength = 25;
-        internal int BombInterval = 20000;
-        internal int SupplyInterval = 7000;
+        internal int MedkitStrength = 50;
+        internal int BombInterval = 30000;
+        internal int SupplyInterval = 6000;
         internal int ZombieInterval = 2500;
         internal Random rng = new Random();
         internal static List<PictureBox> Zombies = new List<PictureBox>();
@@ -256,7 +256,7 @@ namespace Zomb
                 Player.box.Left += Player.Speed;
             }
 
-            if (Player.Move && Player.Direction == Direction.Up && Player.box.Top > 40)
+            if (Player.Move && Player.Direction == Direction.Up && Player.box.Top > 50)
             {
                 Player.box.Top -= Player.Speed;
             }
@@ -289,6 +289,7 @@ namespace Zomb
                     }
                 }
             }
+            if (bomb) Player.Score += (ushort)Zombies.Count; ;
             foreach (PictureBox box in Zombies)
             {
                 Controls.Remove(box);
@@ -396,7 +397,7 @@ namespace Zomb
             labelGameOver.Visible = false;
             Player.Score = 0;
             Player.Ammunition = 10;
-            Player.Speed = 10;
+            Player.Speed = 15;
             Player.Health = 100;
             Player.Direction = Direction.Up;
             labelAmmo.ForeColor = Color.White;

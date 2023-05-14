@@ -9,13 +9,13 @@ namespace Zomb
 {
     internal static class Player
     {
-        internal static int Health = 100;
+        internal static int Health;
         // 1: Up, 0: Down, -1: Left, 2: Right
         internal static Direction Direction = Direction.Up;
-        internal static int Speed = 10;
-        internal static int Ammunition = 10;
+        internal static int Speed;
+        internal static int Ammunition;
         internal static bool Move = false;
-        internal static ushort Score = 0;
+        internal static ushort Score;
         internal static PictureBox box;
 
         internal static bool IsAlive { get { return Health > 0; } }
